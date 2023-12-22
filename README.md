@@ -18,7 +18,7 @@ You can find the worker code under: `src/Resources/js/workers/simulator/`.
 * Form actions: `app/action/` & `src/TrashSim/Action/`
   * Entities: `src/TrashSim/Entity/`
 * Front-end assets: `src/Resources/`
-
+  
 ## Requirements
 This web application needs PHP 7+ and can be installed with composer.
 Your domain must point to the `public/`, which is the main entry point for users.
