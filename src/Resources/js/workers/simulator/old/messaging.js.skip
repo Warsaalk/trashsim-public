@@ -1,0 +1,39 @@
+
+//importScripts('libs/entityInfo.js');
+
+let entityInfo = {}, entityInfoMapping = {};
+
+const chromium = /chrome/i.test(navigator.userAgent);
+
+console.log(`chromium: ${chromium.toString()}`);
+
+onmessage = e =>
+{
+	let i = 0;
+
+	for (const eID in e.data[5])
+	{
+		/*
+		Because bit shifting turns floats into integers we're going to multiply the shield / armour / attack by 4.
+		Which gives us a precision of 1 / 4; 0 > 0.25 > 0.5 > 0.75 > 1
+		*/
+		entityInfo[i] = e.data[5][eID];
+		//entityInfo[i].weapon *= 100;
+		//entityInfo[i].shield *= 100;
+		//entityInfo[i].armour *= 100;
+
+		entityInfoMapping[eID] = i;
+
+		i++;
+	}
+
+    //console.profile("TrashSim");
+	Simulator.simulate(
+		e.data[0], // Number of simulations
+		e.data[1], // Attacker data
+		e.data[2], // Defender data
+		e.data[3], // Use rapidfire
+		e.data[4]  // Worker ID
+	);
+    //console.profileEnd("TrashSim");
+};

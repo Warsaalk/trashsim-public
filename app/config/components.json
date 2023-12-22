@@ -1,0 +1,14 @@
+{
+	"admin" : {
+	    "path" : "admin",
+	    "config" : "config_admin.ini",
+	    "configMergeDefault" : true,
+	    "routing" : "routing_admin.json",
+	    "routingMergeDefault" : true
+	},
+	"public" : {
+	    "path" : false,
+		"routing" : "routing_public.json",
+		"routingMergeDefault" : true
+	}
+}

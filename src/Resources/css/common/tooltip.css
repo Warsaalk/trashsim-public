@@ -1,0 +1,8 @@
+/*** Uv Tooltip ***/
+#stt_Cloud { position: absolute; top: 0; left: 0; }
+.stt_Tooltip { color: #aaa; border-radius: 3px; border: 1px solid #353a40; padding: 3px; min-height: 14px; background: #1E2B39; }
+.arrow { position: absolute; }
+.arrow-stt-bottom { top: -10px; left: 50%; margin-left: -10px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #1E2B39; }
+.arrow-stt-top { bottom: -10px; left: 50%; margin-left: -10px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid #1E2B39; }
+.arrow-stt-left { right: -10px; top: 50%; margin-top: -10px; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 10px solid #1E2B39; }
+.arrow-stt-right { left: -10px; top: 50%; margin-top: -10px; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right:10px solid #1E2B39; }

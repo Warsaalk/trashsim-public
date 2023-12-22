@@ -1,0 +1,42 @@
+
+.ipm-controller {  }
+.ipm-controller .popup-content { max-width: 320px; margin-top: 40px !important; }
+
+.ipm-controller h3 { margin-top: 0; }
+.ipm-controller ul { padding: 0; margin: 10px 0 0; list-style: none; }
+.ipm-controller ul li { clear: both; margin-top: 4px; }
+.ipm-controller ul li .ipm-target-fake,
+.ipm-controller ul li input[type="radio"] { display: inline-block; width: 5%; margin: 0 3% 0 0; height: 15px; vertical-align: middle; cursor: pointer; }
+.ipm-controller ul li label { display: inline-block; width: 100%; }
+.ipm-controller ul li label input { float: right; border: 0; border-radius: 3px; width: 20%; padding: 0.5% 0 0.5% 1%; }
+.ipm-controller ul li label input[disabled="disabled"] { opacity: 0.1; }
+.ipm-controller ul li label span { float: right; margin: 2px 10px 0 0; }
+.ipm-controller ul li label .entity-dome { display: none; }
+.ipm-controller ul li label .entity-dome-checkbox { margin: 4px 0; }
+.ipm-controller ul li label.ipm-count { margin-top: 3px; color: #999; }
+.ipm-controller ul li label.ipm-count .arrow { transform: rotate(90deg); font-size: 1.4em; margin: 0 20px 0 0; line-height: 0.9; position: relative; }
+.ipm-controller ul li label.ipm-count .ipm-max { float: none; margin: 0; }
+.ipm-controller ul li label.ipm-count input { padding: 0.25% 0 0.25% 1%; background-color: rgba(255, 255, 255, 0.9); }
+.ipm-controller #ipm-attacker-coordinates { text-align: right; }
+.ipm-controller #ipm-attacker-coordinates input { border: 0; border-radius: 3px; padding: 0.25% 0 0.25% 1%; width: 13%; }
+.ipm-controller #ipm-attacker-coordinates span { float: left; }
+.ipm-controller #ipm-attacker ul li label { width: 100%; }
+.ipm-controller .ipm-info { margin-top: 10px; }
+.ipm-controller .ipm-info span { float: right; }
+.ipm-controller .ipm-target-fake,
+.ipm-controller .ipm-target-hint { margin-top: 5px; color: #d29d00; }
+.ipm-controller #simulate-ipm-apply { padding: 10px; text-align: center; margin-top: 25px; }
+
+.ipm-result-table { border: 1px solid rgba(57, 73, 94, 0.5); border-radius: 3px; margin-top: 25px; }
+.ipm-result-table table { border-collapse: collapse; width: 100%; }
+.ipm-result-table table .resource { background-image: url(../img/resources.jpg); background-size: 250px 20px; width: 30px; height: 20px; }
+.ipm-result-table table .resource-metal { background-position: 0 0; }
+.ipm-result-table table .resource-crystal { background-position: -30px 0; }
+.ipm-result-table table .resource-deuterium { background-position: -60px 0; }
+.ipm-result-table table .resource-total { font-size: 1.3em; text-align: center; }
+.ipm-result-table table tr th,
+.ipm-result-table table tr td { border: 1px solid rgba(57, 73, 94, 0.2); padding: 4px; }
+.ipm-result-table table tr th { background: #151F29; }
+.ipm-result-table table tr td:nth-child(odd) { width: 30px; }
+.ipm-result-table table tr td:nth-child(even) { text-align: right; }
+.ipm-result-table table tfoot td { font-weight: normal; background: rgba(21, 31, 41, 0.5); color: #ddd; }

@@ -1,0 +1,81 @@
+.ts-form { width: 100%; }
+.ts-form + .ts-form { margin-top: 25px; }
+
+.ts-form section { box-sizing: border-box; }
+.ts-form section + section { margin-top: 20px; }
+.ts-form section h2,
+.ts-form section h3 { margin: 0; }
+.ts-form section > div { margin-top: 20px; }
+.ts-form section > div.small { margin-top: 10px; }
+.ts-form section > div:first-child { margin-top: 0; }
+
+.ts-submit { position: relative; }
+.ts-submit [type="submit"] { vertical-align: middle; outline: none; }
+.ts-submit .submitted,
+.ts-submit .spinner { font-size: 1.25rem; margin-left: 10px; vertical-align: middle; }
+.ts-submit [type="submit"].close { padding-right: 20px; margin-left: -35px; z-index: 0; opacity: 0.9; }
+.ts-submit .btn { border: 2px solid var(--background-secondary); }
+.ts-submit .btn[disabled],
+.ts-form:not(.valid) .ts-submit .btn { background: var(--box-background); color: rgba(255,255,255,0.5); }
+
+.ts-form-delete .ts-submit [type="submit"] { border: 1px solid var(--error-background); background: transparent; color: var(--error-background); }
+
+
+.ts-input { display: block; }
+
+.ts-input-label {  }
+.ts-input-description { display: block; margin: 5px 0; font-size: 0.9rem; font-style: italic; }
+
+.ts-input.input-text { text-align: left; }
+.ts-input.input-text span { margin: 0; display: block; }
+.ts-input.input-text input[type] { width: 100%; font-size: 1rem; padding: 5px; margin-top: 5px; font-weight: normal; border-radius: var(--border-radius); background-color: var(--background-white); box-sizing: border-box; border: none; outline: none; }
+.ts-input.input-text input[type]:active,
+.ts-input.input-text input[type]:focus { border-bottom-color: var(--background); }
+.ts-input.input-text input[type]:placeholder-shown { color: rgba(0, 0, 0, 0.25); font-weight: 300; font-style: italic; }
+
+.ts-input.input-text-number { max-width: 200px; }
+
+.ts-input.input-array ul { margin: 5px 0 0; padding: 0; list-style: none; }
+.ts-input.input-array ul li { margin: 5px 5px 0 0; border-radius: var(--border-radius); padding: 5px; background: var(--background); color: var(--color); display: inline-block; cursor: pointer; }
+.ts-input.input-array ul li.empty { background: rgba(100, 100, 100, 0.2); color: var(--color); }
+.ts-input.input-array ul li:not(.empty)::after { content: "\00D7"; display: inline-block; margin-left: 5px; }
+
+.ts-input.radio,
+.ts-input.checkbox-array { display: flex; flex-direction: column; align-items: flex-start; justify-content: center;  }
+.ts-input.checkbox { display: flex; flex-flow: row wrap; align-items: flex-start; cursor: pointer; }
+.ts-input.radio .text,
+.ts-input.checkbox .text,
+.ts-input.checkbox-array .text { flex: 1; }
+.ts-input.radio input,
+.ts-input.checkbox input,
+.ts-input.checkbox-array input { display: none; }
+.ts-input.radio .button,
+.ts-input.checkbox .button,
+.ts-input.checkbox-array .button { display: inline-block; width: 18px; margin-right: 15px; box-sizing: border-box; background: transparent; border: 2px solid var(--background); position: relative; border-radius: var(--border-radius); }
+.ts-input.radio .button { border-radius: 50%; }
+.ts-input.radio .checked .button,
+.ts-input.radio.checked .button,
+.ts-input.checkbox.checked .button,
+.ts-input.checkbox-array .checked .button { box-shadow: 0 5px 10px rgba(100, 100, 100, 0.1); background: var(--background); }
+.ts-input.radio .button::before,
+.ts-input.checkbox .button::before,
+.ts-input.checkbox-array .button::before { content: ""; display: block; width: 100%; padding-top: 100%; }
+.ts-input.radio .checked .button::after,
+.ts-input.radio.checked .button::after,
+.ts-input.checkbox.checked .button::after,
+.ts-input.checkbox-array .checked .button::after { content: ""; width: 50%; padding-top: 25%; transform: translate(-50%, -50%) rotateZ(-45deg); top: 45%; left: 50%; border: solid #fff; border-width: 0 0 3px 3px; position: absolute; }
+
+.ts-input.radio label,
+.ts-input.checkbox-array label,
+.ts-input.checkbox { background: var(--background-secondary); padding: 10px; box-sizing: border-box; border-radius: var(--border-radius); }
+
+.ts-input.radio .errors[bottom] .error::before,
+.ts-input.checkbox .errors[bottom] .error::before,
+.ts-input.checkbox-array .errors[bottom] .error::before { border-bottom-width: 5px; }
+
+.ts-input.radio > span,
+.ts-input.checkbox-array > span { display: inline-block; margin-bottom: 15px; }
+.ts-input.radio label,
+.ts-input.checkbox-array label {display: flex; justify-content: flex-start; align-items: center; cursor: pointer; }
+.ts-input.radio label + label,
+.ts-input.checkbox-array label + label{ margin-top: 10px; }

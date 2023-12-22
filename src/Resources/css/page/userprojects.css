@@ -1,0 +1,25 @@
+
+#userprojects h2 { font-size: 4em; }
+#userprojects > p { font-size: 2em; }
+#userprojects .userprojects-block { padding: 3%; border-radius: 3px; background: #1E2B39; }
+#userprojects .userprojects-block h3 { margin: 0; font-size: 1.6em; }
+#userprojects .userprojects-block a { color: #fff; text-decoration: underline; cursor: pointer; }
+#userprojects .userprojects-block .userprojects-item { margin: 25px 0; background: #39495e; padding: 2%; border: 1px solid rgba(112, 139, 159, 0.2); border-radius: 3px; }
+#userprojects .userprojects-block .userprojects-item:last-child { margin-bottom: 0; }
+#userprojects .userprojects-block .userprojects-item p { word-break: break-word; word-wrap: break-word; }
+#userprojects .userprojects-block .userprojects-item p:first-child { margin-top: 0; }
+#userprojects .userprojects-block .userprojects-item p:last-child { margin-bottom: 0; }
+
+#userprojects .userprojects-json-table { border-collapse: collapse; text-align: center; }
+#userprojects .userprojects-json-table tr th { background: #151F29; }
+#userprojects .userprojects-json-table tr td { background: rgba(21, 31, 41, 0.5); }
+#userprojects .userprojects-json-table tr th, 
+#userprojects .userprojects-json-table tr td { border: 1px solid rgba(57, 73, 94, 0.2); padding: 4px; }
+
+#userprojects #userprojects-languages span { padding: 2px 5px; background: #39495e; border: 1px solid rgba(112, 139, 159, 0.2); border-radius: 3px; }
+
+@media (max-width: 50em) {
+
+	#userprojects { padding: 0 5%; }
+	
+}

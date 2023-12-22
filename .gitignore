@@ -1,0 +1,10 @@
+/.buildpath
+/.project
+/.settings/
+/src/Resources/node_modules/
+/app/log/
+/public/assets/
+/composer.phar
+/vendor/
+/.idea/
+/env.ini

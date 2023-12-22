@@ -1,0 +1,23 @@
+.simulation-test { display: flex; flex-flow: row wrap; align-items: center; }
+.simulation-test + .simulation-test { margin-top: 5px; padding-top: 5px; border-top: 2px solid var(--background); }
+
+.simulation-test-info { margin-right: auto; padding: 2px 0; }
+.simulation-test-info span { font-family: monospace; font-size: 0.9rem; }
+.simulation-test-info a { color: var(--color-tertiary); font-style: italic; }
+.simulation-test-message { padding: 2px 5px; margin-right: 10px; background: var(--background); border-radius: var(--border-radius); }
+.simulation-test-state span i { font-size: 0.9rem; }
+.simulation-test-state span i.fa-check { color: var(--success-background); }
+.simulation-test-state span i.fa-times { color: var(--error-background); }
+.simulation-test-state span i.fa-exclamation { color: var(--warning-background); font-size: 0.7rem; }
+
+.simulation-test-expand { margin-left: 10px; opacity: 0.25; cursor: pointer; }
+.simulation-test-expand:hover { opacity: 1; }
+.simulation-test-summary { width: 100%; margin-top: 10px; }
+
+.simulation-test-summary-comparison { margin-top: 15px; }
+.simulation-test-summary-comparison table { width: 100%; border-collapse: collapse; background: var(--background); }
+.simulation-test-summary-comparison table tr th,
+.simulation-test-summary-comparison table tr td { border: 1px solid var(--border-color); padding: 5px; text-align: center; }
+
+.state-success { background: var(--background-green); }
+.state-failed { background: var(--background-red); }

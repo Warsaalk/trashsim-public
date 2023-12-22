@@ -1,0 +1,29 @@
+#php_flag magic_quotes_gpc Off
+
+<Limit PUT DELETE>
+	Allow from all
+</Limit>
+
+<IfModule mod_rewrite.c>	
+	
+	RewriteEngine On
+	
+    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+    RewriteRule ^(.*) - [E=APP_BASE:%1]
+
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^index\.php(/(.*)|$) %{ENV:APP_BASE}/$2 [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule .? - [L]
+	
+	RewriteCond %{DOCUMENT_ROOT}%{ENV:APP_BASE}/updating -f
+	RewriteRule (.*) %{ENV:APP_BASE}/update.html [L]
+	
+	RewriteRule (.*) %{ENV:APP_BASE}/index.php/$1 [L]
+	
+</IfModule>
+
+<FilesMatch "\.(css|jpg|png|js|nmf)$">
+    Header set Cache-Control "public, max-age=604800"
+</FilesMatch>

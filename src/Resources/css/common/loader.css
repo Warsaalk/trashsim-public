@@ -1,0 +1,7 @@
+
+
+.sbl-wrapper { position: fixed;  z-index: 8999; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,0.7); }
+
+.sbl-wrapper .sbl-loader { position: absolute; width: 128px; height: 128px; left: 50%; top: 50%; margin: -64px 0 0 -64px; }
+
+.sbl-wrapper .sbl-loader img { width: 100%; height: auto; display: block; }

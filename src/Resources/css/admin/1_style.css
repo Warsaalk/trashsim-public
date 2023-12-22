@@ -1,0 +1,24 @@
+#admin main { max-width: 1000px; }
+
+#admin-app { transform: rotateX(-90deg); }
+.ready #admin-app { transform: rotateX(0); }
+
+#admin-app #trashsim-title-wrapper { margin: 25px 0; }
+#admin-app #trashsim-title { font-size: 4rem; }
+
+.admin-box { margin: 25px auto; padding: 50px; background: var(--box-background); border-radius: var(--border-radius); max-width: 400px; }
+
+.admin-breadcrumbs { }
+.admin-breadcrumbs ul { list-style: none; margin: 0; display: inline-block; padding: 10px; background: var(--box-background); border-radius: var(--border-radius); }
+.admin-breadcrumbs ul li { display: inline-block; }
+.admin-breadcrumbs ul li + li { margin-left: 10px; }
+.admin-breadcrumbs ul li + li::before { content: "\2192"; display: inline-block; margin-right: 10px; }
+.admin-breadcrumbs ul li a { color: #fff; }
+
+.spinner { animation: spinning 1s linear infinite; }
+
+@keyframes spinning {
+    0% { transform: rotateZ(0deg); }
+    50% { transform: rotateZ(180deg); }
+    100% { transform: rotateZ(359deg); }
+}

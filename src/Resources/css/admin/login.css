@@ -1,0 +1,4 @@
+.login { display: flex; justify-content: center; align-items: center; }
+.login h3 { margin-top: 0; }
+.login form > div + div { margin-top: 10px; }
+.login label span { display: block; margin-bottom: 5px; }

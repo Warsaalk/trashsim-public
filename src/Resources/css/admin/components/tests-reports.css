@@ -1,0 +1,18 @@
+.tests-reports { display: flex; flex-flow: row wrap; align-items: flex-start; }
+.tests-reports .tests-reports-label { width: 30%; margin-right: 20px; }
+.tests-reports .tests-reports-id { flex: 1; }
+.tests-reports .tests-reports-add { margin-left: 20px; }
+.tests-reports .tests-reports-add .ts-submit { margin-top: 5px; }
+.tests-reports .tests-reports-add input[type="submit"] { padding: 4px 6px; }
+.tests-reports .tests-reports-add .ts-submit .errors { position: absolute; }
+
+.ts-form .tests-reports > div { margin-top: 0; }
+
+.tests-reports-list {  }
+.tests-reports-list ul { margin: 0; padding: 0; list-style: none; }
+.tests-reports-list ul li { display: flex; flex-flow: row wrap; }
+.tests-reports-list ul li + li { margin-top: 5px; }
+.tests-reports-item,
+.tests-reports-item-remove { background: var(--background); border-radius: var(--border-radius); }
+.tests-reports-item { display: flex; justify-content: space-between; flex: 1; padding: 5px 10px; }
+.tests-reports-item-remove { display: inline-block; margin-left: 10px; padding: 5px 7px; cursor: pointer; }

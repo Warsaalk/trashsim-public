@@ -1,0 +1,1 @@
+	<h1 id="page-error"><span>403</span>Forbidden</h1>

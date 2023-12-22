@@ -1,0 +1,49 @@
+{
+	"admin_page" :
+	{
+		"path" : "admin",
+		"type" : "page",
+		"template" : "admin/page/index",
+		"methods" : ["GET","POST"],
+		"actions" : {
+			"POST" : "login#\\TrashSim\\Action\\Login"
+		},
+		"default" : true
+	},
+	"admin_page_login" :
+	{
+		"path" : "admin/login",
+		"type" : "html",
+		"template" : "admin/login",
+		"methods" : ["GET"],
+		"public" : true
+	},
+	"admin_page_tests" :
+	{
+		"path" : "admin/tests",
+		"type" : "page",
+		"template" : "admin/page/tests",
+		"methods" : ["GET"]
+	},
+	"html_admin_views_home":
+	{
+		"path": "admin/html/components/views/home.html",
+		"type": "html",
+		"template": "admin/views/home"
+	},
+	"html_admin_views_tests":
+	{
+		"path": "admin/html/components/views/tests.html",
+		"type": "html",
+		"template": "admin/views/tests"
+	},
+	"translations_json":
+	{
+		"path": "admin/translations/{locale}.locale.json",
+		"pathData": {
+			"locale": "[a-z]{2}-[A-Z]{2}"
+		},
+		"type": "json",
+		"template": "admin/translations/index"
+	}
+}	

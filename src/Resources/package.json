@@ -1,0 +1,21 @@
+{
+  "name": "TrashSim",
+  "version": "1.0.0",
+  "description": "OGame combat simulator",
+  "author": "Klaas Van Parys",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-uglify": "github:gruntjs/grunt-contrib-uglify#harmony"
+  },
+  "dependencies": {
+    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.9"
+  }
+}

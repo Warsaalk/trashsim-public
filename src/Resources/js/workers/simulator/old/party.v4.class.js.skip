@@ -1,0 +1,220 @@
+
+class PartyV4
+{
+    constructor (length)
+    {
+        this.x = 0;
+        this.length = length;
+
+        this.dataBuffer = new ArrayBuffer(2 * 4 * 4 * length);
+
+        this.entities = new DataView(this.dataBuffer, 0, length); // Uint8 - 1 Byte // The types in this array will always be in order from 202 to ...
+        this.entitiesAlive = new DataView(this.dataBuffer, length, 2 * length); // Uint8 - 1 Byte
+        this.entitiesShields = new DataView(this.dataBuffer, 2 * length, 4 * length); // Float32 - 4 Bytes
+        this.entitiesHullPoints = new DataView(this.dataBuffer, 2 * 4 * length, 4 * length); // Float32 - 4 Bytes
+
+        this.remaining = length;
+        this.destroyed = 0;
+        this.entityInfo = {};
+        this.indexOffsets = {};
+
+        this.remainingEntities = {};
+        this.lostEntities = {};
+    }
+
+    loadPlayerEntities (index, weaponLvl, shieldLvl, armourLvl, numbers)
+    {
+        this.remainingEntities[index] = {};
+        this.lostEntities[index] = {};
+
+        for (let type in numbers) {
+            let number = numbers[type]|0, weapon = entityInfo[type].weapon, shield = entityInfo[type].shield, armour = entityInfo[type].armour;
+
+            let fullShield = shield + (shield * 0.1 * shieldLvl), HP = (armour + (armour * 0.1 * armourLvl)) * 0.1;
+
+            this.lostEntities[index][type] = 0;
+
+            const subType = type - 200;
+
+            this.entityInfo[subType] = [
+                weapon + (weapon * 0.1 * weaponLvl),
+                fullShield,
+                HP
+            ];
+
+            while (number--) {
+                //Type, Status, Attack, Shield, HP, maxHP
+                this.entities.setUint8(this.x, subType|0); // Max 8 bits for type (max type = 511) | At bit 9 the alive flag | from bit 10 the player index
+                this.entitiesAlive.setUint8(this.x, 1);
+                this.entitiesShields.setFloat32(this.x * 4, fullShield);
+                this.entitiesHullPoints.setFloat32(this.x * 4, HP);
+
+                this.x++; // Position next entity
+            }
+        }
+
+        this.indexOffsets[index] = this.x - 1;
+    }
+
+    shootTo (enemies, useRapidFire)
+    {
+        // Select a random enemy, set local entities variable, pick random enemy, set local enemy entities
+        let random = Math.random, entities = this.entities;
+
+        // Calculate remaining entities
+        let il = this.remaining, i = 0;
+
+        // Predefined rapid fire variables
+        let entityRapidFire = false, entityRapidFireType = 0;
+
+        // Loop all entities
+        while (i < il) {
+            let type = entities.getUint8(i), eType = false;
+
+            // As the entity types will be ordered only select the rapidfire info on the first occurence
+            if (type !== entityRapidFireType) {
+                entityRapidFire = entityInfo[type + 200];
+                entityRapidFireType = type;
+            }
+
+            do {
+                // Select a random enemy target
+                //var enemyEntity = enemy.entities[];
+                let ex = Math.floor(random() * enemies.remaining), offsetF32 = ex * 4;
+
+                eType = enemies.entities.getUint8(ex);
+
+                // Make sure the enemy entity is still alive & our entity can attack
+                if (enemies.entitiesAlive.getUint8(ex) === 1 && this.entityInfo[type][0] !== 0) {
+                    const eEntityShield = enemies.entitiesShields.getFloat32(offsetF32);
+
+                    let attackPower = this.entityInfo[type][0]; // Real attack power
+                    if (attackPower < eEntityShield) { // If the attack is lower than the shield we need to calculate the shield damage / bounce effect
+                        // Calculate the damage percentage, this percentage will be an integer
+                        // As an effect of this calculation a entity with a attack power less than 1% of the enemie his full shield, the shot will bounce
+
+                        enemies.entitiesShields.setFloat32(offsetF32, eEntityShield -
+                            0.01 *
+                            Math.floor(100 * attackPower / enemies.entityInfo[eType][1]) *
+                            enemies.entityInfo[eType][1]); // Damage the shield with the calculate damage percentage
+                        /*
+                        let damagePercentage = attackPower / enemies.entityInfo[eType][1];
+                        if (damagePercentage >= 0.02) {
+                            enemies.entitiesShields.getUint16(ex * 2) -= damagePercentage * enemies.entityInfo[eType][1]; // Damage the shield with the calculate damage percentage
+                        }
+                        */
+                        attackPower = 0; // Reset the attack because it was already used on the shield
+                    } else {
+                        attackPower -= eEntityShield; // Calculate the remaining attack power after bringing the shield down
+                        enemies.entitiesShields.setFloat32(offsetF32, 0); // Set shield to 0 because the attack was higher than the shield value, thus the shield was destroyed
+                    }
+
+                    let eHullPoints = enemies.entitiesHullPoints.getFloat32(offsetF32);
+
+                    if (attackPower > 0) { // If there is still attack power left after hitting the shield -> hit the hull with the remaining power
+                        enemies.entitiesHullPoints.setFloat32(offsetF32, eHullPoints -= attackPower);
+
+                        // If HP is below 0, I thinks it's exploded!
+                        if (eHullPoints <= 0) {
+                            enemies.entitiesAlive.setUint8(ex, 0); // Clear the alive bit
+                            enemies.destroyed++;
+                        }
+                    }
+
+                    // Calculate explosion probability only if HP is below 70%
+                    if (enemies.entitiesAlive.getUint8(ex) === 1 && eHullPoints <= (enemies.entityInfo[eType][2] * 0.7)) {
+                        // Roll a dice on lost HP, if a ship is damaged for 35% there is a chance of 35% that it'll explode
+                        if (random() >= (eHullPoints / enemies.entityInfo[eType][2])) {
+                            enemies.entitiesAlive.setUint8(ex, 0); // Clear the alive bit
+                            enemies.destroyed++;
+                        }
+                    }
+                }
+
+                // Rapid fire is disabled or no rapid fire present against the enemy target, so let our next entity fire
+                if (entityRapidFire.rapidfire_against[eType + 200] === void 0) break;
+
+            } while (useRapidFire !== false && random() > (1 / entityRapidFire.rapidfire_against[eType + 200])); // The chance a entity has to repeat fire against another ship
+
+            i++;	// Go to next entity
+        }
+    }
+
+    resetEntities ()
+    {
+        let newRemaining = this.length - this.destroyed;
+
+        // Loop all our entities, remaining count is always reset
+        let tempDataBuffer = new ArrayBuffer(2 * 4 * 4 * newRemaining),
+            tempRemaining = new DataView(tempDataBuffer, 0, newRemaining),
+            tempRemainingAlive = new DataView(tempDataBuffer, newRemaining, 2 * newRemaining),
+            tempRemainingShields = new DataView(tempDataBuffer, 2 * newRemaining, 4 * newRemaining),
+            tempRemainingHullPoints = new DataView(tempDataBuffer, 2 * 4 * newRemaining, 4 * newRemaining);
+
+        let offset = this.indexOffsets[0];
+
+        for (let i=0, il=this.remaining, x = 0, index = 0; i<il; i++) {
+            const entity = this.entities.getUint8(i);
+            // Delete this.entities with the explosion flag
+            if (this.entitiesAlive.getUint8(i) === 0) {
+                this.lostEntities[index][entity + 200]++;
+            }
+            // Regenerate the shields of the remaining this.entities
+            else {
+                tempRemaining.setUint8(x, entity);
+                tempRemainingAlive.setUint8(x, 1);
+                tempRemainingShields.setFloat32(x * 4, this.entityInfo[entity][1]);
+                tempRemainingHullPoints.setFloat32(x * 4, this.entitiesHullPoints.getFloat32(i * 4));
+                x++;
+            }
+
+            if (i === offset) {
+                this.indexOffsets[index++] = x - 1;
+
+                offset = this.indexOffsets[index];
+            }
+        }
+
+        this.dataBuffer = tempDataBuffer;
+        this.entities = tempRemaining;
+        this.entitiesAlive = tempRemainingAlive;
+        this.entitiesShields = tempRemainingShields;
+        this.entitiesHullPoints = tempRemainingHullPoints;
+        this.remaining = newRemaining;
+    }
+
+    getRemainingEntities ()
+    {
+        if (this.remaining > 0) {
+            let last = this.entities.getUint8(0), lastIdx = 0, i = 0, playerIdx = 0, offset = this.indexOffsets[playerIdx];
+
+            for (let il=this.remaining; i<il; i++) {
+                const entity = this.entities.getUint8(i);
+                if (entity !== last || i > offset) {
+                    this.remainingEntities[playerIdx][last + 200] = i - lastIdx;
+                    lastIdx = i;
+                    last = entity;
+
+                    if (i > offset) {
+                        offset = this.indexOffsets[++playerIdx];
+                    }
+                }
+            }
+
+            this.remainingEntities[playerIdx][last + 200] = i - lastIdx;
+        }
+
+        return this.remainingEntities;
+    }
+
+    getLostEntities ()
+    {
+        for (let index in this.lostEntities) {
+            for (let type in this.lostEntities[index]) {
+                if (this.lostEntities[index][type] === 0)
+                    delete this.lostEntities[index][type];
+            }
+        }
+        return this.lostEntities;
+    }
+}

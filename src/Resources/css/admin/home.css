@@ -1,0 +1,6 @@
+.admin-home {}
+.admin-home h3 { margin-top: 0; }
+.admin-home ul { list-style: none; margin: 25px 0 0; padding: 0; }
+.admin-home ul li {  }
+.admin-home ul li + li { margin-top: 10px; }
+.admin-home ul li a { display: block; color: #fff; text-decoration: none; padding: 10px; width: 100%; }

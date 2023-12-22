@@ -1,0 +1,15 @@
+
+#contributors h2 { font-size: 4em; }
+#contributors .contributors-block { padding: 3%; border-radius: 3px; background: #1E2B39; }
+#contributors .contributors-block h3 { font-size: 3em; margin: 0 0 20px; }
+#contributors .contributors-block ul { list-style: none; padding: 0; margin: 0; }
+#contributors .contributors-block ul li { font-size: 1.5em; background: #39495e; padding: 2%; border: 1px solid rgba(112, 139, 159, 0.2); border-bottom: 0; }
+#contributors .contributors-block ul li:first-child { border-top-left-radius: 3px; border-top-right-radius: 3px; }
+#contributors .contributors-block ul li:last-child { border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom: 1px solid rgba(112, 139, 159, 0.2); }
+#contributors .contributors-block ul li img { vertical-align: middle; margin-right: 10px; }
+
+@media (max-width: 50em) {
+
+	#contributors { padding: 0 5%; }
+	
+}

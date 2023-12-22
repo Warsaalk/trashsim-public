@@ -1,0 +1,15 @@
+.simulation-test-group {  }
+.simulation-test-group-header { padding: 15px; display: flex; flex-flow: row wrap; align-items: center; justify-content: space-between; cursor: pointer; }
+.simulation-test-group-header h4 { margin: 0; }
+.simulation-test-group-header h4 i { transition: 0.3s; margin-right: 5px; }
+.simulation-test-group-header span { display: inline-block; vertical-align: middle; }
+.simulation-test-group-header span + span { margin-left: 10px; }
+.simulation-test-group-header span i.fa-check { color: var(--success-background); }
+.simulation-test-group-header span i.fa-times { color: var(--error-background); }
+
+.simulation-test-group-simulations { display: none; padding: 15px; margin: 0 15px 15px; background: var(--background-tertiary); color: var(--color-tertiary); border-radius: var(--border-radius); }
+.simulation-test-group-simulations > ul { list-style: none; margin: 0; padding: 0; }
+
+.simulation-test-group.show-simulations .simulation-test-group-header {  }
+.simulation-test-group.show-simulations .simulation-test-group-header h4 i { transform: rotateZ(180deg); }
+.simulation-test-group.show-simulations .simulation-test-group-simulations { display: block; }

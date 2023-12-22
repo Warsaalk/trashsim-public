@@ -1,0 +1,11 @@
+
+.share-controller {  }
+.share-controller .popup-content { max-width: 400px; }
+.share-controller h2 { margin-top: 0; }
+.share-controller .share-link { margin: 15px 0; background-color: #151F29; padding: 10px; border-radius: 3px; }
+.share-controller .share-actions { text-align: right; }
+.share-controller .share-actions > div { vertical-align: middle; display: inline-block; }
+.share-controller .share-action-copy { padding: 10px; }
+.share-controller .share-copy-state { margin-right: 15px; padding: 3px 7px; background-color: #151F29; position: relative; border-radius: 3px; }
+.share-controller .share-copy-state::after { content: ""; position: absolute; left: 100%; top: 50%; transform: translateY(-50%); border-left: 10px solid #151F29; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.share-controller .share-link-expiration { text-align: right; font-style: italic; font-size: 0.75rem; margin-top: 10px; }

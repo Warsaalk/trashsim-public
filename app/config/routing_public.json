@@ -1,0 +1,19 @@
+{
+	"page_home" :
+	{
+		"path" : "{lang}",
+		"pathData" : {
+			"lang" : true
+		},
+		"pathDefaultLang": "",
+		"type" : "page",
+		"template" : "page/home",
+		"methods" : ["GET"],
+		"public" : true,
+		"default" : true,
+		"caching": {
+			"control": "public",
+			"maxage": "1800"
+		}
+	}
+}	

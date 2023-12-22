@@ -1,0 +1,40 @@
+
+.save-controller {  }
+.save-controller .popup-content { max-width: 320px; width: 100%; }
+
+#save-wrapper h2,
+#save-wrapper ul { margin-top: 0; }
+
+#save-list ul { list-style: none; padding: 2%; background: #151F29; border-radius: 3px; margin: 0; }
+#save-list ul li { padding: 2%; margin-top: 2%; }
+#save-list ul li:first-child { margin-top: 0; }
+#save-list ul li.empty { }
+#save-list ul li span { background-color: rgba(57, 73, 94, 0.7); border-radius: 3px; display: block; float: left; margin-left: 3%; width: 92%; box-sizing: border-box; padding: 2%; cursor: pointer; }
+#save-list ul li span.selected { background-color: rgba(80, 103, 132, 1.0); }
+#save-list ul li span .remove { display: none; float: right; background: #1E2B39; padding: 0 4px; border-radius: 2px; }
+#save-list ul li span:hover .remove { display: block; }
+#save-list ul li input { float: left; margin: 2% 0 0; width: 5%; }
+#save-list #save-select { text-align: right; margin-bottom: 5px; }
+#save-list #save-default { padding-left: 6%; margin-top: 5px; }
+#save-list #save-select span,
+#save-list #save-default span { transform: rotate(-90deg); display: inline-block; margin-right: 5px; } 
+#save-list #save-default #save-default-reset { display: inline-block; padding: 0 3px; margin-left: 10px; }
+#save-list #save-override { float: left; }
+#save-list #save-load { float: right; }
+#save-list #save-override,
+#save-list #save-load { width: 49%; opacity: 0.5; }
+#save-list.selected #save-override,
+#save-list.selected #save-load { opacity: 1.0; }
+#save-list #save-override,
+#save-list #save-load,
+#save-list #save-new-btn { padding: 1%; box-sizing: border-box; margin-top: 10px; text-align: center; }
+
+#save-new-wrapper input[type="text"] { border: none; border-radius: 3px; padding: 1% 2%; margin-left: 5px; }
+#save-new-wrapper #save-new { padding: 3%; text-align: center; opacity: 0.25; transition: 0.2s; }
+#save-new-wrapper #save-new.active { opacity: 1; }
+#save-new-wrapper #save-cancel { padding: 1%; text-align: center; margin-top: 15px; background: rgba(80, 103, 132, 0.2); } 
+#save-new-wrapper ul { padding: 0; list-style: none; }
+#save-new-wrapper ul li { margin-bottom: 3px; }
+#save-new-wrapper ul li label { display: block; background-color: rgba(57, 73, 94, 0.7); margin-top: 10px; padding: 2%; border-radius: 3px; cursor: pointer; }
+#save-new-wrapper ul li label:first-child { margin-top: 0; }
+#save-new-wrapper ul li label input { margin: 0; vertical-align: middle; margin-right: 5px; }

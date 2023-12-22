@@ -1,0 +1,16 @@
+.errors { display: none; }
+.validated .errors { display: block; }
+.errors .error { position: relative; background: var(--error-background); border-radius: var(--border-radius); color: var(--error-color); font-weight: 300; padding: 5px 10px; text-align: left; }
+.errors[top],
+.errors[bottom] .error { margin: 5px 0; }
+.errors[bottom] .error + .error { margin-top: 0; }
+.errors[top] .error + .error { margin-bottom: 0; }
+.errors[top] .error::before,
+.errors[bottom] .error::before { content: ""; display: block; position: absolute; left: 10px; z-index: 1; border-left: 10px solid transparent; border-right: 10px solid transparent; }
+.errors[top] .error::before { top: 100%; border-top: 10px solid var(--error-background); }
+.errors[bottom] .error::before { bottom: 100%; border-bottom: 10px solid var(--error-background); }
+
+.errors[middle] .error { text-align: center; }
+.errors[middle] .error::before { left: 50%; transform: translateX(-50%); }
+.errors[right] .error { text-align: right; }
+.errors[right] .error::before { left: auto; right: 10px; }

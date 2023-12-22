@@ -1,0 +1,22 @@
+
+.messages { padding: 0; margin: 0; }
+.message { margin-top: 20px; position: relative; overflow: hidden; transition: 1s; }
+.message .message-content { padding: 10px 15px; border-bottom: 1px solid; border-radius: 3px; display: flex; flex-flow: row wrap; }
+.message .message-type-1 { background: #76afdc; border-color: #5c8db2; }
+.message .message-type-2 { background: #8ec641; border-color: #80b23a; }
+.message .message-type-4 { background: #fddb55; border-color: #e8c64e; }
+.message .message-type-8 { background: #F0947B; border-color: #d5684d; }
+.message span { font-weight: bold; flex: 1; }
+.message .message-type-1 span,
+.message .message-type-2 span { color: #fff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); }
+.message .message-type-4 span ,
+.message .message-type-8 span { color: #222; text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3); }
+.message .close-message { display: inline-block; flex-grow: 0; margin-left: 5px; padding: 0 5px; text-align: center; color: #000; font-weight: bold; cursor: pointer; }
+	
+.message-small { margin-top: 10px; height: auto; }
+.message-small .message-content { padding: 4px 4px 3px; height: auto; line-height: normal; }
+.message-small span { font-weight: normal; padding: 0 30px 0 0; }
+.message-small .close-message { top: 3px; right: 3px; }
+
+#popup .message { margin-top: 0; }
+#popup .message + .message { margin-top: 15px; }

@@ -1,0 +1,1 @@
+	<h1 id="page-error"><span>405</span> Method Not Allowed</h1>

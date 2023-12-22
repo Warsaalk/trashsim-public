@@ -1,0 +1,34 @@
+#trashsim-title-wrapper { margin: 50px 0; display: flex; }
+
+#trashsim-title { margin: 0; }
+#trashsim-title a { color: #fff; text-decoration: none; }
+
+#trashsim-menu { position: absolute; top: -5px; right: 0; text-align: center; display: none; }
+#trashsim-menu ul { list-style: none; padding: 0; margin: 0; }
+#trashsim-menu ul li { text-align: left; margin-bottom: 15px; }
+#trashsim-menu ul li:last-child { margin-bottom: 0; }
+#trashsim-menu ul li a { display: block; background: #1E2B39; border: 1px solid #3c4d60; color: #f1f1f1; box-shadow: 0 0 10px rgba(0,0,0,0.6); font-size: 1.3em; border-radius: 7px; text-decoration: none; padding: 3%; }
+#trashsim-menu ul li a:hover { background: #3c4d60; border: 1px solid #1E2B39; }
+
+#trashsim-top-ad { flex: 1; margin-left: 50px; max-height: 150px; }
+
+.ai-collective { margin: -25px 0; cursor: pointer; display: block; height: calc(100% + 50px); background: url(../img/trashsim-banner-large.gif) center right no-repeat; background-size: contain; }
+
+@media (max-width: 84em) {
+	.ai-collective { background-image: url(../img/trashsim-banner-medium.gif); }
+}
+
+@media (max-width: 50em) {
+	#trashsim-title { font-size: 4em; text-align: center; }
+	
+	#trashsim-menu { position: relative; top: 0; left: 0; }
+	#trashsim-menu li { display: inline-block; margin: 0 10px; }
+}
+
+@media (max-width: 35em) {
+	#trashsim-title-wrapper { flex-flow: row wrap; margin: 25px 0 0; }
+	#trashsim-title { flex: 1 0 100%; font-size: 3em; }
+	#trashsim-top-ad { display: block; min-height: 75px; margin: 15px 0 0; flex: 1 0 100%; }
+
+	.ai-collective { margin: 0; background-position: center; height: 100%; }
+}

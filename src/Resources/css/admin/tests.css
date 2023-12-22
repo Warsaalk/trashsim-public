@@ -1,0 +1,8 @@
+.tests-settings { display: flex; flex-flow: row wrap; justify-content: space-between; }
+.tests-settings .tests-settings-left,
+.tests-settings .tests-settings-right { width: 48%; margin-top: 0; }
+
+.tests-groups { margin-top: 50px; }
+.tests-groups > ul { list-style: none; margin: 0; padding: 0; background: var(--background); border-radius: var(--border-radius); }
+.tests-groups > ul > li { padding: 10px; }
+.tests-groups > ul > li + li { border-top: 1px solid var(--background-tertiary); }

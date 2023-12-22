@@ -1,0 +1,10 @@
+
+#nav-bottom { text-align: center; }
+#nav-bottom ul { list-style: none; padding: 0; margin: 0; }
+#nav-bottom ul li { display: inline-block; }
+#nav-bottom ul li::before { content: " | "; white-space: "pre"; }
+#nav-bottom ul li:first-child::before { content: ""; }
+#nav-bottom ul li a { color: #fff; }
+
+#copy a { color: #fff; }
+#copy img { height: 28px; width: auto; vertical-align: middle; }

@@ -1,0 +1,12 @@
+{
+  "program": {
+    "portable": {
+      "pnacl-translate": {
+        "url": "trashsim.pexe"
+      },
+      "pnacl-debug": {
+        "url": "trashsim_unstripped.bc"
+      }
+    }
+  }
+}
