@@ -97,24 +97,7 @@ class Party
                         let attackPower = this.entityInfo[index][type][0]; // Real attack power
                         if (attackPower < eEntityFullShield && eEntityShield >= 0) { // If the attack is lower than the shield we need to calculate the shield damage / bounce effect
                             // Calculate the damage percentage, this percentage will be an integer
-                            // As an effect of this calculation a entity with a attack power less than 1% of the enemie his full shield, the shot will bounce
-
-                            // TODO 1 :: probes don't deal damage nor do they trigger the explosion
-                            // TODO 2 :: fix the 1% issue
-
-                            /*
-                            enemies.entitiesShields.setFloat32(offsetF32, eEntityShield -
-                                0.01 *
-                                Math.floor(100 * attackPower / enemies.entityInfo[eIndex][eType][1]) *
-                                enemies.entityInfo[eIndex][eType][1]); // Damage the shield with the calculate damage percentage
-*/
-/*
-                            let damagePercentage = attackPower / enemies.entityInfo[eIndex][eType][1];
-                            if (damagePercentage > 0.01) {
-                                enemies.entitiesShields.setFloat32(offsetF32, eEntityShield - damagePercentage * enemies.entityInfo[eIndex][eType][1]); // Damage the shield with the calculate damage percentage
-                            }
-*/
-                            // TODO 2 :: check ceil vs no rounding
+                            // As an effect of this calculation an entity with an attack power less than 1% of the enemy his full shield, the shot will bounce
 
                             let damagePercentage = attackPower / eEntityFullShield * 100;
                             if (damagePercentage > 1) {
@@ -126,16 +109,7 @@ class Party
                                 }
 
                                 enemies.entitiesShields.setFloat32(offsetF32, newShield); // Damage the shield with the calculate damage percentage
-                                //enemies.entitiesShields[ex] -= damagePercentage * 0.01 * enemies.entityInfo[eIndex][eType][1]; // Damage the shield with the calculate damage percentage
                             }
-
-/*
-                            let damagePercentage = Math.ceil(attackPower / enemies.entityInfo[eIndex][eType][1] * 100);
-                            if (damagePercentage > 1) {
-                                enemies.entitiesShields.setFloat32(offsetF32, eEntityShield - damagePercentage * 0.01 * enemies.entityInfo[eIndex][eType][1]); // Damage the shield with the calculate damage percentage
-                                //enemies.entitiesShields[ex] -= damagePercentage * 0.01 * enemies.entityInfo[eIndex][eType][1]; // Damage the shield with the calculate damage percentage
-                            }
-                            */
 
                             attackPower = 0; // Reset the attack because it was already used on the shield
                         } else {
@@ -239,10 +213,5 @@ class Party
         this.dataBuffer = new ArrayBuffer(0);
         this.dataBufferShields = new ArrayBuffer(0);
         this.dataBufferHullPoints = new ArrayBuffer(0);
-
-        //this.entities = new DataView(this.dataBuffer, 0, length); // Uint8 - 1 Byte // The types in this array will always be in order from 202 to ...
-        //this.entitiesState = new DataView(this.dataBuffer, length, length); // Uint8 - 1 Byte
-        //this.entitiesShields = new DataView(this.dataBufferShields, 0, 4 * length); // Float32 - 4 Bytes
-        //this.entitiesHullPoints = new DataView(this.dataBufferHullPoints, 0, 4 * length); // Float32 - 4 Bytes
     }
 }
