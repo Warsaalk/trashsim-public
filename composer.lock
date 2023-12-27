@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "323cb854a6ab355754de1f582eb5b1c0",
+    "content-hash": "ae3f470ac0e0ef53bce885615a9f6721",
     "packages": [
         {
             "name": "ogetit/ogetit",
@@ -106,23 +106,23 @@
         },
         {
             "name": "plinth/plinth",
-            "version": "v0.2.5",
+            "version": "v0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Warsaalk/Plinth.git",
-                "reference": "d44394e41d8c180eca284e51e619e0066403c502"
+                "reference": "f235021a44d0d4d59064d9b116f9871626287339"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Warsaalk/Plinth/zipball/d44394e41d8c180eca284e51e619e0066403c502",
-                "reference": "d44394e41d8c180eca284e51e619e0066403c502",
+                "url": "https://api.github.com/repos/Warsaalk/Plinth/zipball/f235021a44d0d4d59064d9b116f9871626287339",
+                "reference": "f235021a44d0d4d59064d9b116f9871626287339",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-pdo": "*",
-                "php": "^5.5|^7.1"
+                "php": "^7.1|^8.1"
             },
             "type": "library",
             "autoload": {
@@ -148,9 +148,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Warsaalk/Plinth/issues",
-                "source": "https://github.com/Warsaalk/Plinth/tree/master"
+                "source": "https://github.com/Warsaalk/Plinth/tree/v0.26"
             },
-            "time": "2019-12-12T08:13:43+00:00"
+            "time": "2023-05-15T14:53:38+00:00"
         },
         {
             "name": "predis/predis",

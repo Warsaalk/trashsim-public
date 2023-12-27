@@ -5,7 +5,7 @@
 	"require" : {
 		"ogetit/ogetit" : "~2.0",
 		"predis/predis" : "v1.1.1",
-		"plinth/plinth" : "~0.2",
+		"plinth/plinth" : "v0.2.6",
 		"ramsey/uuid" : "~3.8",
 		"ext-json": "*"
 	},
@@ -13,8 +13,5 @@
 		"psr-4": {
 			"TrashSim\\" : "src/TrashSim"
 		}
-	},
-    "scripts" : {
-    	"post-install-cmd" : "PlinthScripts\\ComposerHandler::initProject"
-    }
+	}
 }
